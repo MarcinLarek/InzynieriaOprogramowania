@@ -183,6 +183,11 @@ namespace ProjektZaliczeniowy.Controllers
                 return NotFound();
             }
 
+            if (post.UserID != User.FindFirstValue(ClaimTypes.NameIdentifier))
+            {
+                return Forbid();
+            }
+
             return View(post);
         }
 
