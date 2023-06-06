@@ -1,0 +1,32 @@
+﻿@model ProjektZaliczeniowy.Models.Comment
+
+@{
+    ViewData["Title"] = "Create";
+}
+<h4>Dodaj komentarz</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create" method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <input type="hidden" asp-for="UserID" value="@ViewData["CurrentUser"]" class="form-control" />
+            </div>
+            <div class="form-group">
+                <input type="hidden" asp-for="CommentedPost" value="@ViewData["PostID"]" class="form-control" />
+            </div>
+            <div class="form-group">
+                <textarea asp-for="CommentContent" class="form-control"></textarea>
+                <span asp-validation-for="CommentContent" class="text-danger"></span>
+            </div>
+            <div class="form-group pt-4">
+                <input type="submit" value="Utwórz" class="btn btn-dark" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

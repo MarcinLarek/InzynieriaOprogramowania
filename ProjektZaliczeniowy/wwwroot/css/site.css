@@ -1,0 +1,26 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+.nav-pills > .active > a, .nav-pills > .active > a:hover {
+    background-color: #212529 !important;
+}
+    
+.nav-pills > .active > a, .nav-pills > .active {
+        background-color: #212529 !important;
+    }

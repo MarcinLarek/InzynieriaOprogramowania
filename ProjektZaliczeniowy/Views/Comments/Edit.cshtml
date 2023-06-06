@@ -1,0 +1,41 @@
+﻿@model ProjektZaliczeniowy.Models.Comment
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edycja komentarza</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="UserID" class="control-label"></label>
+                <select asp-for="UserID" class="form-control" asp-items="ViewBag.UserID"></select>
+                <span asp-validation-for="UserID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CommentedPost" class="control-label"></label>
+                <input asp-for="CommentedPost" class="form-control" />
+                <span asp-validation-for="CommentedPost" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CommentContent" class="control-label"></label>
+                <input asp-for="CommentContent" class="form-control" />
+                <span asp-validation-for="CommentContent" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-dark" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
